@@ -23,7 +23,7 @@ package com;
 	public String readItems() 
 	
 	 { 
-		return billObj.readItems(); 
+		return billObj.readBill(); 
 	 
 	 } 
 	
@@ -38,7 +38,7 @@ package com;
 	 @FormParam("userConsumed") String consumed,
 	 @FormParam("userCharge") String charge) 
 	{ 
-	 String output = billObj.insertItem(Code, Name, rate, consumed, charge); 
+	 String output = billObj.insertBill(Code, Name, rate, consumed, charge); 
 	return output;
 	}
 	
@@ -54,7 +54,7 @@ package com;
 	 
 	//Read the value from the element <userID>
 	 String userID = doc.select("userID").text(); 
-	 String output = billObj.deleteItem(userID); 
+	 String output = billObj.deleteBill(userID); 
 	return output; 
 	}
 
@@ -75,7 +75,7 @@ package com;
 	 String userRate = itemObject.get("useRate").getAsString(); 
 	 String userConsumed = itemObject.get("userConsumed").getAsString();
 	 String userCharge = itemObject.get("userCharge").getAsString();
-	 String output = billObj.updateItem(userID, userCode, userName, userRate, userConsumed, userCharge); 
+	 String output = billObj.updateBill(userID, userCode, userName, userRate, userConsumed, userCharge); 
 	return output; 
 	}
 	}
